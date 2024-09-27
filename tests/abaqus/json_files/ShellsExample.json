@@ -1,0 +1,389 @@
+{
+  "id": "93650b62-6fd2-caec-8d29-096f526c5852",
+  "name": "OSAMmemberSA",
+  "units": {
+    "force": "KILONEWTON",
+    "length": "METRE",
+    "temperature": "CELSIUS",
+    "time": "SECOND"
+  },
+  "objects": [
+    {
+      "id": "9a4d4fcc-058b-4bb2-8776-8d9aefacb649",
+      "name": "OSAMmemberSA",
+      "mesh": {
+        "node_count": 6,
+        "el_count": 2,
+        "nodes": [
+          {
+            "X": 935.99996579999788,
+            "Y": 107.73999509999709,
+            "Z": 52.629801800000017,
+            "id": 1
+          },
+          {
+            "X": 935.99996579999754,
+            "Y": 161.7399978999978,
+            "Z": 52.629801800000017,
+            "id": 2
+          },
+          {
+            "X": 883.99996769999768,
+            "Y": 161.73999789999746,
+            "Z": 52.629806200000012,
+            "id": 3
+          },
+          {
+            "X": 883.999967699998,
+            "Y": 107.73999509999675,
+            "Z": 52.629806200000012,
+            "id": 4
+          },
+          {
+            "X": 831.99996959999794,
+            "Y": 161.73999789999712,
+            "Z": 52.629810600000013,
+            "id": 5
+          },
+          {
+            "X": 831.99996959999828,
+            "Y": 107.73999509999641,
+            "Z": 52.629810600000013,
+            "id": 6
+          }
+        ],
+        "elements": [
+          {
+            "id": 1,
+            "type": "SHELL",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 4,
+            "face_count": 1,
+            "integration": "REDUCED",
+            "nodes": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "faces": [
+              [
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "section": "2a0d8e65-a08f-4826-8903-eb194a830b49",
+            "material": "S355"
+          },
+          {
+            "id": 2,
+            "type": "SHELL",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 4,
+            "face_count": 1,
+            "integration": "REDUCED",
+            "nodes": [
+              4,
+              3,
+              5,
+              6
+            ],
+            "faces": [
+              [
+                4,
+                3,
+                5,
+                6
+              ]
+            ],
+            "section": "2a0d8e65-a08f-4826-8903-eb194a830b49",
+            "material": "S355"
+          }
+        ]
+      },
+      "coordinateSystem": {
+        "xAxis": {
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "yAxis": {
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "zAxis": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        }
+      }
+    }
+  ],
+  "assembly": {
+    "name": "OSAMmemberSA",
+    "instances": [
+      {
+        "id": "19312e47-c4f6-4981-923c-2bfdaf675311",
+        "name": "OSAMmemberSA",
+        "referenced_object": "9a4d4fcc-058b-4bb2-8776-8d9aefacb649",
+        "nsets": [
+          {
+            "name": "BCnode-1",
+            "nodesIDs": [
+              1
+            ]
+          },
+          {
+            "name": "BCnode-2",
+            "nodesIDs": [
+              2
+            ]
+          },
+          {
+            "name": "BCnode-5",
+            "nodesIDs": [
+              5
+            ]
+          },
+          {
+            "name": "BCnode-6",
+            "nodesIDs": [
+              6
+            ]
+          },
+          {
+            "name": "LoadNode-3",
+            "nodesIDs": [
+              3
+            ]
+          },
+          {
+            "name": "LoadNode-4",
+            "nodesIDs": [
+              4
+            ]
+          }
+        ],
+        "elsets": [],
+        "translation": null,
+        "rotation": null
+      }
+    ]
+  },
+  "materials": [
+    {
+      "name": "S355",
+      "category": "steel",
+      "type": "ISOTROPIC",
+      "mass_density": 78.0,
+      "elastic": {
+        "functions": null,
+        "plane_stress": false,
+        "plane_stain": false,
+        "compression_factor": 1.0,
+        "parameters": {
+          "E": 210000.0,
+          "v": 78.0
+        }
+      },
+      "plastic": null
+    }
+  ],
+  "sections": [
+    {
+      "id": "2a0d8e65-a08f-4826-8903-eb194a830b49",
+      "name": "Shell_0.2",
+      "section_type": "SHELL SECTION",
+      "section": {
+        "thickness": 0.2
+      }
+    }
+  ],
+  "bc": [
+    {
+      "id": "d45783b0-f8de-4d69-843f-94e95afba2bd",
+      "type": "DISPLACEMENT",
+      "nodes": "BCnode-1",
+      "instances": [
+        "19312e47-c4f6-4981-923c-2bfdaf675311"
+      ],
+      "ux": [
+        true,
+        0.0
+      ],
+      "uy": [
+        true,
+        0.0
+      ],
+      "uz": [
+        true,
+        0.0
+      ],
+      "rx": [
+        true,
+        0.0
+      ],
+      "ry": [
+        true,
+        0.0
+      ],
+      "rz": [
+        true,
+        0.0
+      ]
+    },
+    {
+      "id": "b1477be1-fe3c-4e13-950e-029cce65b20b",
+      "type": "DISPLACEMENT",
+      "nodes": "BCnode-2",
+      "instances": [
+        "19312e47-c4f6-4981-923c-2bfdaf675311"
+      ],
+      "ux": [
+        true,
+        0.0
+      ],
+      "uy": [
+        true,
+        0.0
+      ],
+      "uz": [
+        true,
+        0.0
+      ],
+      "rx": [
+        true,
+        0.0
+      ],
+      "ry": [
+        true,
+        0.0
+      ],
+      "rz": [
+        true,
+        0.0
+      ]
+    },
+    {
+      "id": "275eb219-59c4-4639-98ea-b1f8030b176e",
+      "type": "DISPLACEMENT",
+      "nodes": "BCnode-5",
+      "instances": [
+        "19312e47-c4f6-4981-923c-2bfdaf675311"
+      ],
+      "ux": [
+        true,
+        0.0
+      ],
+      "uy": [
+        true,
+        0.0
+      ],
+      "uz": [
+        true,
+        0.0
+      ],
+      "rx": [
+        true,
+        0.0
+      ],
+      "ry": [
+        true,
+        0.0
+      ],
+      "rz": [
+        true,
+        0.0
+      ]
+    },
+    {
+      "id": "f59d3d7c-32b4-4060-acc6-b6e2565ece58",
+      "type": "DISPLACEMENT",
+      "nodes": "BCnode-6",
+      "instances": [
+        "19312e47-c4f6-4981-923c-2bfdaf675311"
+      ],
+      "ux": [
+        true,
+        0.0
+      ],
+      "uy": [
+        true,
+        0.0
+      ],
+      "uz": [
+        true,
+        0.0
+      ],
+      "rx": [
+        true,
+        0.0
+      ],
+      "ry": [
+        true,
+        0.0
+      ],
+      "rz": [
+        true,
+        0.0
+      ]
+    }
+  ],
+  "loadCases": [
+    {
+      "id": "5deba43f-89bd-ba47-ba1b-ec4e8f5ad966",
+      "name": "Surcharge",
+      "type": "LIVE",
+      "selfWeight": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "loads": [
+    {
+      "id": "89f92faf-2408-3b2b-07e5-9d2ebb2fffde",
+      "type": "POINT_LOAD",
+      "caseName": "Surcharge",
+      "instances": [
+        "19312e47-c4f6-4981-923c-2bfdaf675311"
+      ],
+      "load": {
+        "nset": "LoadNode-3",
+        "dof": 3,
+        "v": -10.0
+      }
+    },
+    {
+      "id": "9b9fb380-7689-9e49-7085-bc6daa11199e",
+      "type": "POINT_LOAD",
+      "caseName": "Surcharge",
+      "instances": [
+        "19312e47-c4f6-4981-923c-2bfdaf675311"
+      ],
+      "load": {
+        "nset": "LoadNode-4",
+        "dof": 3,
+        "v": -20.0
+      }
+    }
+  ]
+}

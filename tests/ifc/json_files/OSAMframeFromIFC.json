@@ -1,0 +1,405 @@
+{
+  "id": "5051cfa8-2c47-7c57-f832-40f66f2c2b9b",
+  "name": "frameOSAM",
+  "units": {
+    "force": "KILONEWTON",
+    "length": "METRE",
+    "temperature": "CELSIUS",
+    "time": "SECOND"
+  },
+  "objects": [
+    {
+      "id": "9eaa2d0f-34d4-4e1c-b329-02684ae8e5a5",
+      "name": "frameOSAM",
+      "mesh": {
+        "node_count": 4,
+        "el_count": 3,
+        "nodes": [
+          {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "id": 1
+          },
+          {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 5.0,
+            "id": 2
+          },
+          {
+            "X": 0.0,
+            "Y": 5.0,
+            "Z": 5.0,
+            "id": 3
+          },
+          {
+            "X": 0.0,
+            "Y": 5.0,
+            "Z": 0.0,
+            "id": 4
+          }
+        ],
+        "elements": [
+          {
+            "id": 1,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              1,
+              2
+            ],
+            "faces": null,
+            "section": "5b1c99dd-dbcf-4979-af75-1ea0da6bc786",
+            "material": "HP-40"
+          },
+          {
+            "id": 2,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              2,
+              3
+            ],
+            "faces": null,
+            "section": "5b1c99dd-dbcf-4979-af75-1ea0da6bc786",
+            "material": "HP-40"
+          },
+          {
+            "id": 3,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              4,
+              3
+            ],
+            "faces": null,
+            "section": "5b1c99dd-dbcf-4979-af75-1ea0da6bc786",
+            "material": "HP-40"
+          }
+        ]
+      },
+      "coordinateSystem": {
+        "xAxis": {
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "yAxis": {
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "zAxis": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        }
+      }
+    }
+  ],
+  "assembly": {
+    "name": "frameOSAM",
+    "instances": [
+      {
+        "id": "780a7039-0d48-4105-82f6-96b28dcaaa7b",
+        "name": "frameOSAM",
+        "referenced_object": "9eaa2d0f-34d4-4e1c-b329-02684ae8e5a5",
+        "nsets": [
+          {
+            "name": "BCnode-1",
+            "nodesIDs": [
+              1
+            ]
+          },
+          {
+            "name": "BCnode-4",
+            "nodesIDs": [
+              4
+            ]
+          },
+          {
+            "name": "LoadNode-2",
+            "nodesIDs": [
+              2
+            ]
+          },
+          {
+            "name": "LoadNode-3",
+            "nodesIDs": [
+              3
+            ]
+          }
+        ],
+        "elsets": [],
+        "translation": null,
+        "rotation": null
+      }
+    ]
+  },
+  "materials": [
+    {
+      "name": "HP-40",
+      "category": "concrete",
+      "type": "ISOTROPIC",
+      "mass_density": 0.0,
+      "elastic": {
+        "functions": null,
+        "plane_stress": false,
+        "plane_stain": false,
+        "compression_factor": 1.0,
+        "parameters": {
+          "E": 0.0,
+          "v": 0.0
+        }
+      },
+      "plastic": null
+    }
+  ],
+  "sections": [
+    {
+      "id": "5b1c99dd-dbcf-4979-af75-1ea0da6bc786",
+      "name": "beam30x40",
+      "section_type": "BEAM SECTION",
+      "section": {
+        "beam_section": "RECT",
+        "orientation": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "cross_section": {
+          "a": 0.3,
+          "b": 0.4
+        }
+      }
+    }
+  ],
+  "bc": [
+    {
+      "id": "56fe02d2-b2d4-410e-ab9d-bd30e74585d2",
+      "type": "DISPLACEMENT",
+      "nodes": "BCnode-1",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "ux": [
+        true,
+        0.0
+      ],
+      "uy": [
+        true,
+        0.0
+      ],
+      "uz": [
+        true,
+        0.0
+      ],
+      "rx": [
+        true,
+        0.0
+      ],
+      "ry": [
+        true,
+        0.0
+      ],
+      "rz": [
+        true,
+        0.0
+      ]
+    },
+    {
+      "id": "97e0fa2a-e1ae-4740-afa6-274797975e76",
+      "type": "DISPLACEMENT",
+      "nodes": "BCnode-4",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "ux": [
+        true,
+        0.0
+      ],
+      "uy": [
+        true,
+        0.0
+      ],
+      "uz": [
+        true,
+        0.0
+      ],
+      "rx": [
+        true,
+        0.0
+      ],
+      "ry": [
+        true,
+        0.0
+      ],
+      "rz": [
+        false,
+        0.0
+      ]
+    }
+  ],
+  "loadCases": [
+    {
+      "id": "1fc260ea-3e0b-d95c-5c97-00661c5d9642",
+      "name": "SURCHARGE",
+      "type": "LIVE",
+      "selfWeight": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "loads": [
+    {
+      "id": "98ae658e-227f-68c2-2b74-9003b50ceddd",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-2",
+        "dof": 1,
+        "v": 20.0
+      }
+    },
+    {
+      "id": "98ae658e-227f-68c2-2b74-9003b50ceddd",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-2",
+        "dof": 2,
+        "v": 20.0
+      }
+    },
+    {
+      "id": "98ae658e-227f-68c2-2b74-9003b50ceddd",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-2",
+        "dof": 3,
+        "v": 20.0
+      }
+    },
+    {
+      "id": "819bb3e5-2911-6931-64a6-fae265e6f539",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-3",
+        "dof": 1,
+        "v": 40.0
+      }
+    },
+    {
+      "id": "819bb3e5-2911-6931-64a6-fae265e6f539",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-3",
+        "dof": 2,
+        "v": 40.0
+      }
+    },
+    {
+      "id": "819bb3e5-2911-6931-64a6-fae265e6f539",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-3",
+        "dof": 3,
+        "v": 40.0
+      }
+    },
+    {
+      "id": "819bb3e5-2911-6931-64a6-fae265e6f539",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-3",
+        "dof": 4,
+        "v": 2.0
+      }
+    },
+    {
+      "id": "819bb3e5-2911-6931-64a6-fae265e6f539",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-3",
+        "dof": 5,
+        "v": 2.0
+      }
+    },
+    {
+      "id": "819bb3e5-2911-6931-64a6-fae265e6f539",
+      "type": "POINT_LOAD",
+      "caseName": "SURCHARGE",
+      "instances": [
+        "780a7039-0d48-4105-82f6-96b28dcaaa7b"
+      ],
+      "load": {
+        "nset": "LoadNode-3",
+        "dof": 6,
+        "v": 2.0
+      }
+    }
+  ]
+}

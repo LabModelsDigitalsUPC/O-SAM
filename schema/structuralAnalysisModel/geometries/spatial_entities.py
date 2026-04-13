@@ -38,7 +38,7 @@ class Vector3D(BaseModel):
     def unitize(self):
         self.X = self.X/self.get_magnitude()
         self.Y = self.Y/self.get_magnitude()
-        self.Y = self.Y/self.get_magnitude()
+        self.Z = self.Z/self.get_magnitude()
 
 def dot_product(v1: Vector3D, v2: Vector3D)->float:
     result = sum(x*y for x, y in zip(v1.get_coordinates(), v2.get_coordinates()))

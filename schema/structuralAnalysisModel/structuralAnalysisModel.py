@@ -1,30 +1,42 @@
 import json
-from typing import Optional, List
+from typing import Optional, List, Any
 from uuid import UUID, uuid4
 from pydantic import BaseModel, Field
 
 from .materials.material import Material
 from .sections.section import Section
-from .loads.load import Load
+from .loads.load import Load,LoadCase
 from .geometries.assembly import Object, Assembly
 from .geometries.sets import NSet, ElSet
 from .sections.section import Section
 from .boundary_conditions import BoundaryCondition
 
+class Units(BaseModel):
+    force: str
+    lentgh: str
+    temperature: str
+    time: str
+    mass: str = "KILOGRAM"
 
 class StructuralAnalysisModel(BaseModel):
-    id:Optional[UUID ] =  Field(uuid4(), alias='_id')
+    id:Optional[UUID ] =  Field(uuid4(), alias='_id', serialization_alias='id')
     name:  str = 'default-SA-name'
+    units: Optional[Units] = None
     objects: List[Object] = []
     assembly: Assembly = Assembly()
     materials: List[Material] =  []
     sections: List[Section] =  []
     bc: List[BoundaryCondition] =  []
+    loadCases: List[LoadCase] = []
     loads: List[Load] = []
 
-    def __init__(self, id = None):
-        super().__init__()
-        self.id = id
+    def __init__(self, id = None, **kwargs):
+        super().__init__(**kwargs)
+        if id is not None:
+            self.id = id
+    
+    def add_unit(self, unit:Units):
+        self.objects.append(unit)
 
     def add_object(self, obj:Object):
         self.objects.append(obj)
@@ -40,6 +52,9 @@ class StructuralAnalysisModel(BaseModel):
 
     def add_load(self, load:Load):
         self.loads.append(load)
+
+    def add_loadCase(self, loadCase:LoadCase):
+        self.loadCases.append(loadCase)
 
     def add_set(self, _set: NSet|ElSet):
         self.sets.append(_set)
@@ -73,5 +88,6 @@ class StructuralAnalysisModel(BaseModel):
 
     def save(self, path):
         with open(path, 'w') as f:
-            f.write(self.json(indent=None))
+            f.write(self.model_dump_json(indent=2, by_alias=True))
+
 

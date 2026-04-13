@@ -36,13 +36,15 @@ public class o_sam
         public string length;
         public string temperature;
         public string time;
+        public string mass;
 
-        public Units(string force, string length, string temperature, string time)
+        public Units(string force, string length, string temperature, string time, string mass)
         {
             this.force = force;
             this.length = length;
             this.temperature = temperature;
             this.time = time;
+            this.mass = mass;
         }
     }
 
@@ -222,13 +224,15 @@ public class o_sam
         public string name;
         public string section_type;
         public SectionType section;
+        public string material;
 
-        public Section(string id, string name, string section_type, SectionType section)
+        public Section(string id, string name, string section_type, string material, SectionType section)
         {
             this.id = id;
             this.name = name;
             this.section_type = section_type;
             this.section = section;
+            this.material = material;
         }
     }
 
@@ -339,24 +343,24 @@ public class o_sam
     public class nsets
     {
         public string name;
-        public List<int> nodesIDs;
+        public List<int> nodeIDs;
 
-        public nsets(string name, List<int> nodesIDs)
+        public nsets(string name, List<int> nodeIDs)
         {
             this.name = name;
-            this.nodesIDs = nodesIDs;
+            this.nodeIDs = nodeIDs;
         }
     }
 
     public class elsets
     {
         public string name;
-        public List<int> elemsIDs;
+        public List<int> elementIDs;
 
         public elsets(string name, List<int> elemsIDs)
         {
             this.name = name;
-            this.elemsIDs = elemsIDs;
+            this.elementIDs = elemsIDs;
         }
     }
 
@@ -410,6 +414,44 @@ public class o_sam
             this.nset = nset;
             this.dof = dof;
             this.v = v;
+        } 
+    }
+
+    public class DistributedLoad : LoadType
+    {
+        public string nset;
+        public string dir;
+        public double v1;
+        public double v2;
+        public double l1;
+        public double l2;
+
+        public DistributedLoad(string nset, string dir, double v1, double v2, double l1, double l2)
+        {
+            this.nset = nset;
+            this.dir = dir;
+            this.v1 = v1;
+            this.v2 = v2;
+            this.l1 = l1;
+            this.l2 = l2;
+        }
+    }
+
+    public class SurfaceLoad : LoadType
+    {
+        public string nset;
+        public double v;
+        public double xdir;
+        public double ydir;
+        public double zdir;
+
+        public SurfaceLoad(string nset, double v, double xdir, double ydir, double zdir)
+        {
+            this.nset = nset;
+            this.v = v;
+            this.xdir = xdir;
+            this.ydir = ydir;
+            this.zdir = zdir;
         }
     }
 

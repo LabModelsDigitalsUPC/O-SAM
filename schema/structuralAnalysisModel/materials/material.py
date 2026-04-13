@@ -12,10 +12,10 @@ class MaterialTypeEnum(Enum):
     ORTHOTROPIC = 'ORTHOTROPIC'
 
 class MaterialCategoryEnum(Enum):
-    STEEL = 'STEEL'
-    CONCRETE = 'CONCRETE'
-    WOOD = 'WOOD'
-    SOIL = 'SOIL'
+    STEEL = 'steel'
+    CONCRETE = 'concrete'
+    WOOD = 'wood'
+    SOIL = 'soil'
 
 class HardeningEnum(Enum):
     ISOTROPIC = 'ISOTROPIC'
@@ -35,6 +35,21 @@ class Function(BaseModel): #
         self.parameters = parameters
         self.data =data
 
+class ElasticIsotropicParam(BaseModel):
+    E: float
+    v: float
+
+class ElasticOrthotropicParam(BaseModel):
+    E1: float
+    E2: float
+    E3: float
+    v12: float
+    v13: float
+    v23: float
+    G12: float
+    G13: float
+    G23: float
+
 
 ################################################################
 
@@ -49,6 +64,7 @@ class Elasticity(BaseModel):
     plane_stress: bool = False
     plane_strain: bool = False
     compression_factor: float = 1
+    parameters: Optional[ElasticIsotropicParam | ElasticOrthotropicParam] = None
     D1111: float = 0
     D1122: float = 0
     D2222: float = 0
@@ -102,29 +118,37 @@ class Elasticity(BaseModel):
     def set_isotropic(self, E, v, plane_stress =False):
 
         # Matriz de elasticidad para un material isotrópico
-        D = [[1/E, -v/E, -v/E, 0, 0, 0],
-        [-v/E, 1/E, -v/E, 0, 0, 0],
-        [-v/E, -v/E, 1/E, 0, 0, 0],
-        [0, 0, 0, 1/(2*(1+v)), 0, 0],
-        [0, 0, 0, 0, 1/(2*(1+v)), 0],
-        [0, 0, 0, 0, 0, 1/(2*(1+v))]]
+        try:
+            D = [[1/E, -v/E, -v/E, 0, 0, 0],
+            [-v/E, 1/E, -v/E, 0, 0, 0],
+            [-v/E, -v/E, 1/E, 0, 0, 0],
+            [0, 0, 0, 1/(2*(1+v)), 0, 0],
+            [0, 0, 0, 0, 1/(2*(1+v)), 0],
+            [0, 0, 0, 0, 0, 1/(2*(1+v))]]
+        except ZeroDivisionError:
+            D = [[0.0] * 6 for _ in range(6)]
 
         self.set_from_nested_list(D, plane_stress)
+        self.parameters = ElasticIsotropicParam(E=E, v=v)
 
     def set_orthotropic(self, E1, E2, E3, v12, v13, v23, G12, G13, G23 ):
 
-        v21 = v12 * E2 / E1
-        v31 = v13 * E3 / E1
-        v32 = v23 * E3 / E2
+        try:
+            v21 = v12 * E2 / E1
+            v31 = v13 * E3 / E1
+            v32 = v23 * E3 / E2
 
-        D = [[1/E1, -v12/E1, -v13/E1, 0, 0, 0],
-            [-v21/E2, 1/E2, -v23/E2, 0, 0, 0],
-            [-v31/E3, -v32/E3, 1/E3, 0, 0, 0],
-            [0, 0, 0, 1/G12, 0, 0],
-            [0, 0, 0, 0, 1/G13, 0],
-            [0, 0, 0, 0, 0, 1/G23]]
+            D = [[1/E1, -v12/E1, -v13/E1, 0, 0, 0],
+                [-v21/E2, 1/E2, -v23/E2, 0, 0, 0],
+                [-v31/E3, -v32/E3, 1/E3, 0, 0, 0],
+                [0, 0, 0, 1/G12, 0, 0],
+                [0, 0, 0, 0, 1/G13, 0],
+                [0, 0, 0, 0, 0, 1/G23]]
+        except ZeroDivisionError:
+            D = [[0.0] * 6 for _ in range(6)]
         
         self.set_from_nested_list(D)
+        self.parameters  = ElasticOrthotropicParam(E1=E1, E2=E2, E3=E3, v12=v12, v13=v13, v23=v23, G12=G12, G13=G13, G23=G23 )
     
     def get_matrix(self):
         if self.plane_stress or self.plane_strain:

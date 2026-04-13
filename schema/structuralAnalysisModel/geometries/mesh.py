@@ -11,10 +11,10 @@ class Node(Point3D):
         self.id = id
 
 class Mesh(BaseModel):
-    nodes: List[Node] = []
-    elements: List[Element] = []
     node_count: int = 0
     el_count: int = 0
+    nodes: List[Node] = []
+    elements: List[Element] = []
     
     def add_node_from_coords(self, id, x, y, z):
         if not id: id = self.node_count + 1

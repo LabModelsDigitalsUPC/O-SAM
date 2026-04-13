@@ -4,7 +4,7 @@ from typing import Optional, Union, List, Set
 from uuid import UUID, uuid4
 from pydantic import BaseModel, conint, Field
 
-from ..geometries.spatial_entities import Point3D, Vector3D
+from OSAM.schema.structuralAnalysisModel.geometries.spatial_entities import Point3D, Vector3D
 
 
 class IntegrationEnum(Enum):
@@ -27,8 +27,8 @@ class Element(BaseModel):
     integration: IntegrationEnum = IntegrationEnum.FULL
     nodes: List[int] = []
     faces: List[List[int]] = []
-    integration_points: List[Point3D] = []
     section: Optional[UUID] = None
+    material: Optional[str] = None
 
     def set_id(self, id:int):
         self.id = id
@@ -40,14 +40,14 @@ class Element(BaseModel):
     def set_faces(self, nodes: List):
         if self.face_count == 1:
             self.faces = [nodes]
-        if self.face_count == 4 :
+        elif self.face_count == 4 :
             self.faces = [
                             [nodes[0], nodes[1], nodes[2]],
                             [nodes[0], nodes[1], nodes[3]],
                             [nodes[1], nodes[2], nodes[3]],
                             [nodes[0], nodes[1], nodes[4]]
                         ]
-        if self.face_count == 6 :
+        elif self.face_count == 6 :
             self.faces = [
                             [nodes[0], nodes[1], nodes[2], nodes[3]],
                             [nodes[4], nodes[7], nodes[6], nodes[5]],
@@ -56,6 +56,7 @@ class Element(BaseModel):
                             [nodes[2], nodes[6], nodes[7], nodes[3]],
                             [nodes[3], nodes[7], nodes[4], nodes[0]]
                         ]
+        else: self.faces = []
             
     def get_id(self)-> int:
         return self.id
@@ -69,8 +70,36 @@ class Element(BaseModel):
     def set_section(self, section_id: UUID):
         self.section = section_id
 
+class BeamElement(Element):
+    type: ElementEnum = ElementEnum.BEAM
+    dofs:Set[int] = {1,2,3,4,5,6}
+
+    def B21(self, nodes):
+        self.node_count = 2
+        self.face_count = 0
+        self.integration = IntegrationEnum.FULL
+        self.set_nodes(nodes)
+    
+    def B22(self, nodes):
+        self.node_count = 2
+        self.face_count = 0
+        self.integration = IntegrationEnum.FULL
+        self.set_nodes(nodes)
+    
+    def B31(self, nodes):
+        self.node_count = 2
+        self.face_count = 0
+        self.integration = IntegrationEnum.FULL
+        self.set_nodes(nodes)
+    
+    def B32(self, nodes):
+        self.node_count = 2
+        self.face_count = 0
+        self.integration = IntegrationEnum.FULL
+        self.set_nodes(nodes)
+
 class Element2D(Element):
-    type = ElementEnum.SHELL
+    type: ElementEnum = ElementEnum.SHELL
     dofs:Set[int] = {1,2,3,4,5,6}
 
     def S3(self, nodes):
@@ -109,7 +138,7 @@ class Element2D(Element):
         self.set_faces(nodes)
     
 class Element3D(Element):
-    type = ElementEnum.SOLID
+    type: ElementEnum = ElementEnum.SOLID
     dofs:Set[int] = {1,2,3}
     
     def C3D4(self, nodes):

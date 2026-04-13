@@ -5,8 +5,6 @@ from uuid import UUID, uuid4
 from pydantic import BaseModel, conint, Field
 
 
-
-
 class BoundaryTypeEnum(Enum):
     DISPLACEMENT = 'DISPLACEMENT'
     FIXED = 'FIXED'
@@ -16,8 +14,8 @@ class BoundaryTypeEnum(Enum):
 class BoundaryCondition(BaseModel):
     id: UUID = uuid4()
     type: BoundaryTypeEnum = BoundaryTypeEnum.DISPLACEMENT
-    nodes: str
-    applied_to: UUID|None =  None
+    nset: str
+    instances: List[UUID]
     ux: Tuple[bool, float] = (False, 0)
     uy: Tuple[bool, float] = (False, 0)
     uz: Tuple[bool, float] = (False, 0)
@@ -27,64 +25,64 @@ class BoundaryCondition(BaseModel):
 
     def XSYMM(self):
         self.ux =  (True,0)
-        self.yx =  (False,0)
-        self.zx =  (False,0)
+        self.uy =  (False,0)
+        self.uz =  (False,0)
         self.rx =  (False,0)
         self.ry =  (True,0)
         self.rz =  (True,0)
     
     def YSYMM(self):
         self.ux =  (False,0)
-        self.yx =  (True,0)
-        self.zx =  (False,0)
+        self.uy =  (True,0)
+        self.uz =  (False,0)
         self.rx =  (True,0)
         self.ry =  (False,0)
         self.rz =  (True,0)
     
     def ZSYMM(self):
         self.ux =  (False,0)
-        self.yx =  (False,0)
-        self.zx =  (True,0)
+        self.uy =  (False,0)
+        self.uz =  (True,0)
         self.rx =  (True,0)
         self.ry =  (True,0)
         self.rz =  (False,0)
     
     def ENCASTRE(self):
         self.ux =  (True,0)
-        self.yx =  (True,0)
-        self.zx =  (True,0)
+        self.uy =  (True,0)
+        self.uz =  (True,0)
         self.rx =  (True,0)
         self.ry =  (True,0)
         self.rz =  (True,0)
     
     def PINNED(self):
         self.ux =  (True,0)
-        self.yx =  (True,0)
-        self.zx =  (True,0)
+        self.uy =  (True,0)
+        self.uz =  (True,0)
         self.rx =  (False,0)
         self.ry =  (False,0)
         self.rz =  (False,0)
     
     def XASYMM(self):
         self.ux =  (False,0)
-        self.yx =  (True,0)
-        self.zx =  (True,0)
+        self.uy =  (True,0)
+        self.uz =  (True,0)
         self.rx =  (True,0)
         self.ry =  (False,0)
         self.rz =  (False,0)
     
     def YASYMM(self):
         self.ux =  (True,0)
-        self.yx =  (False,0)
-        self.zx =  (True,0)
+        self.uy =  (False,0)
+        self.uz =  (True,0)
         self.rx =  (False,0)
         self.ry =  (True,0)
         self.rz =  (False,0)
 
     def ZASYMM(self):
         self.ux =  (True,0)
-        self.yx =  (True,0)
-        self.zx =  (False,0)
+        self.uy =  (True,0)
+        self.uz =  (False,0)
         self.rx =  (False,0)
         self.ry =  (False,0)
         self.rz =  (True,0)

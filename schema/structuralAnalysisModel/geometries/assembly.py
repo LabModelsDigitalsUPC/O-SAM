@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional, List
 from uuid import uuid4, UUID
 
@@ -14,8 +14,8 @@ class Object(BaseModel):
     id: UUID
     name: Optional[str] = None
     mesh: Mesh = Mesh()
-    nsets: List[NSet] = []
-    elsets: List[ElSet] =[]
+    nsets: List[NSet] = Field(default_factory=list, exclude=True)
+    elsets: List[ElSet] =Field(default_factory=list, exclude=True)
     coordinateSystem: ReferenceSystem3D = ReferenceSystem3D()
 
     def set_name(self, name:str):
@@ -28,18 +28,19 @@ class Object(BaseModel):
         self.coordinateSystem = system
     
     def add_nset_from_list(self, name:str, ids:Set[int]):
-        #IF NSET NAME ALREADY IN THE SET AVOID ADDITION
+        #IF NSET NAME ALREADY IN THE SET UPDATE IT
         nset =  next((ns for ns in self.nsets if ns.name == name), None)
         if not nset:
             nset = NSet(name=name)
             nset.set_nodes(ids)
             self.nsets.append(nset)
-        else: raise ValueError(f"nset with name'{nset} already exists'")
+        else: 
+            nset.nodeIDs.update(ids)
 
     def update_nset_from_list(self, name:str,ids:Set[int]):
         #IF NSET NAME NOT IN SET CREATE NSET
         nset =  next((ns for ns in self.nsets if ns.name == name), None)
-        if nset: nset.nodes.update(ids)
+        if nset: nset.nodeIDs.update(ids)
         else:  self.add_nset_from_list(name, ids)
 
     def add_elset_from_list(self, name:str, ids:List[int]):
@@ -48,12 +49,13 @@ class Object(BaseModel):
             elset = ElSet(name=name)
             elset.set_elements(ids)
             self.elsets.append(elset)
-        else: raise ValueError(f"nset with name'{elset} already exists'")
+        else: 
+            elset.elementIDs.update(ids)
 
     def update_elset_from_list(self, name:str, ids:List[int]):
             #IF NSET NAME NOT IN SET CREATE NSET
             elset =  next((els for els in self.elsets if els.name == name), None)
-            if elset: elset.elements.update(ids)
+            if elset: elset.elementIDs.update(ids)
             else:  self.add_elset_from_list(name, ids)
 
     def get_name(self):
@@ -82,7 +84,7 @@ class Object(BaseModel):
         nset= next((nset for nset in self.nsets if nset.name == name), None)
         if nset: 
             #return the node set
-            return nset.nodes
+            return nset.nodeIDs
         else: raise ValueError(f"Nset with name '{name}' does not exist.")
     
     def get_elsets(self)->List[ElSet]:
@@ -93,14 +95,14 @@ class Object(BaseModel):
         elset= next(elset for elset in self.elsets if elset.name == name)
         if elset: 
             #return the element set
-            return elset.elements
+            return elset.elementIDs
         else: raise ValueError(f"Elset with name '{name}' does not exist.")
 
     def get_elset_nodes(self, name:str):
         elset= next(elset for elset in self.elsets if elset.name == name)
         if  elset:
             nodes = set()
-            for el_id in elset.elements:
+            for el_id in elset.elementIDs:
                 element = self.get_element_by_id(el_id)
                 nodes.update(element.get_node_ids())
             return nodes
@@ -113,8 +115,8 @@ class Instance(BaseModel):
     id: UUID
     name: str
     referenced_object: UUID
-    nsets: List[str] = []
-    elsets: List[str] = []
+    nsets: List[NSet] = []
+    elsets: List[ElSet] = []
     translation: Optional[Translation]
     rotation: Optional[Rotation]
 
@@ -128,10 +130,10 @@ class Instance(BaseModel):
     def get_name(self):
         return self.name
     
-    def add_nset(self, nset:str):
+    def add_nset(self, nset: NSet):
         self.nsets.append(nset)
     
-    def add_elset(self, elset:str):
+    def add_elset(self, elset: ElSet):
         self.elsets.append(elset)
     
 

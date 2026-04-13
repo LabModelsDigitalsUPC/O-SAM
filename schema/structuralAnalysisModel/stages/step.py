@@ -15,7 +15,7 @@ class StaticAnalysis(BaseModel):
     method:  Optional[MethodEnum] = None
 
 class GeneralStaticAnalysis(StaticAnalysis):
-    method = MethodEnum.GENERAL
+    method: MethodEnum = MethodEnum.GENERAL
     init_time_increment: Optional[float]
     time_period: Optional[float]
     min_time_increment: Optional[float]
@@ -23,7 +23,7 @@ class GeneralStaticAnalysis(StaticAnalysis):
     
 
 class RiksStaticAnalysis(StaticAnalysis):
-    method = MethodEnum.RIKS
+    method: MethodEnum = MethodEnum.RIKS
     init_alen_increment: Optional[float] = None#arch length
     total_alen_scalefactor:  Optional[float]  = 1
     min_alen_increment: Optional[float] = total_alen_scalefactor*10^-9#arch  length

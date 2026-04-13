@@ -1,0 +1,1398 @@
+{
+  "id": "3f9da5a9-0c0a-5c3d-8875-8604156c7972",
+  "name": "Loads types.sdb",
+  "units": {
+    "force": "KILONEWTON",
+    "length": "METRE",
+    "temperature": "CELSIUS",
+    "time": "SECOND",
+    "mass": "KILOGRAM"
+  },
+  "objects": [
+    {
+      "id": "8845a237-1dae-4370-bffd-40d57572c15a",
+      "name": "Loads types.sdb",
+      "mesh": {
+        "node_count": 20,
+        "el_count": 34,
+        "nodes": [
+          {
+            "X": -9.0,
+            "Y": -5.0,
+            "Z": 0.0,
+            "id": 1
+          },
+          {
+            "X": -9.0,
+            "Y": -5.0,
+            "Z": 3.0,
+            "id": 2
+          },
+          {
+            "X": -9.0,
+            "Y": -5.0,
+            "Z": 6.0,
+            "id": 3
+          },
+          {
+            "X": -9.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "id": 4
+          },
+          {
+            "X": -9.0,
+            "Y": 0.0,
+            "Z": 3.0,
+            "id": 5
+          },
+          {
+            "X": -9.0,
+            "Y": 0.0,
+            "Z": 6.0,
+            "id": 6
+          },
+          {
+            "X": -9.0,
+            "Y": 5.0,
+            "Z": 0.0,
+            "id": 7
+          },
+          {
+            "X": -9.0,
+            "Y": 5.0,
+            "Z": 3.0,
+            "id": 8
+          },
+          {
+            "X": -9.0,
+            "Y": 5.0,
+            "Z": 6.0,
+            "id": 9
+          },
+          {
+            "X": -3.0,
+            "Y": -5.0,
+            "Z": 0.0,
+            "id": 10
+          },
+          {
+            "X": -3.0,
+            "Y": -5.0,
+            "Z": 3.0,
+            "id": 11
+          },
+          {
+            "X": -3.0,
+            "Y": -5.0,
+            "Z": 6.0,
+            "id": 12
+          },
+          {
+            "X": -3.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "id": 13
+          },
+          {
+            "X": -3.0,
+            "Y": 0.0,
+            "Z": 3.0,
+            "id": 14
+          },
+          {
+            "X": -3.0,
+            "Y": 0.0,
+            "Z": 6.0,
+            "id": 15
+          },
+          {
+            "X": -3.0,
+            "Y": 5.0,
+            "Z": 0.0,
+            "id": 16
+          },
+          {
+            "X": -3.0,
+            "Y": 5.0,
+            "Z": 3.0,
+            "id": 17
+          },
+          {
+            "X": -3.0,
+            "Y": 5.0,
+            "Z": 6.0,
+            "id": 18
+          },
+          {
+            "X": -9.0,
+            "Y": 6.0,
+            "Z": 3.0,
+            "id": 37
+          },
+          {
+            "X": -3.0,
+            "Y": 6.0,
+            "Z": 3.0,
+            "id": 38
+          }
+        ],
+        "elements": [
+          {
+            "id": 3,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              4,
+              5
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 5,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              7,
+              8
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 7,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              10,
+              11
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 8,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              11,
+              12
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 9,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              13,
+              14
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 10,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              14,
+              15
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 11,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              16,
+              17
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 12,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              17,
+              18
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 25,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              2,
+              11
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 26,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              3,
+              12
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 31,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              5,
+              14
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 32,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              6,
+              15
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 37,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              8,
+              17
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 38,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              9,
+              18
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 43,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              2,
+              5
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 44,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              3,
+              6
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 45,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              5,
+              8
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 46,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              6,
+              9
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 47,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              11,
+              14
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 48,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              12,
+              15
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 49,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              14,
+              17
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 50,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              15,
+              18
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 59,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              8,
+              37
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 60,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              37,
+              38
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 61,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              38,
+              17
+            ],
+            "section": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+            "material": "A992Fy50"
+          },
+          {
+            "id": 13,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              3,
+              2
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 14,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              2,
+              1
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 15,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              6,
+              5
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 16,
+            "type": "BEAM",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 2,
+            "face_count": 0,
+            "integration": "REDUCED",
+            "nodes": [
+              8,
+              9
+            ],
+            "section": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+            "material": "4000Psi"
+          },
+          {
+            "id": 1,
+            "type": "SHELL",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 4,
+            "face_count": 1,
+            "integration": "REDUCED",
+            "nodes": [
+              11,
+              2,
+              5,
+              14
+            ],
+            "faces": [
+              [
+                11,
+                2,
+                5,
+                14
+              ]
+            ],
+            "section": "767e70ec-b17e-4ba5-b4ae-3f52de4fe1b0",
+            "material": "4000Psi"
+          },
+          {
+            "id": 2,
+            "type": "SHELL",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 4,
+            "face_count": 1,
+            "integration": "REDUCED",
+            "nodes": [
+              14,
+              5,
+              8,
+              17
+            ],
+            "faces": [
+              [
+                14,
+                5,
+                8,
+                17
+              ]
+            ],
+            "section": "767e70ec-b17e-4ba5-b4ae-3f52de4fe1b0",
+            "material": "4000Psi"
+          },
+          {
+            "id": 62,
+            "type": "SHELL",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 4,
+            "face_count": 1,
+            "integration": "REDUCED",
+            "nodes": [
+              17,
+              8,
+              37,
+              38
+            ],
+            "faces": [
+              [
+                17,
+                8,
+                37,
+                38
+              ]
+            ],
+            "section": "767e70ec-b17e-4ba5-b4ae-3f52de4fe1b0",
+            "material": "4000Psi"
+          },
+          {
+            "id": 4,
+            "type": "SHELL",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 4,
+            "face_count": 1,
+            "integration": "REDUCED",
+            "nodes": [
+              12,
+              3,
+              6,
+              15
+            ],
+            "faces": [
+              [
+                12,
+                3,
+                6,
+                15
+              ]
+            ],
+            "section": "767e70ec-b17e-4ba5-b4ae-3f52de4fe1b0",
+            "material": "4000Psi"
+          },
+          {
+            "id": 63,
+            "type": "SHELL",
+            "dofs": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "node_count": 4,
+            "face_count": 1,
+            "integration": "REDUCED",
+            "nodes": [
+              15,
+              6,
+              9,
+              18
+            ],
+            "faces": [
+              [
+                15,
+                6,
+                9,
+                18
+              ]
+            ],
+            "section": "767e70ec-b17e-4ba5-b4ae-3f52de4fe1b0",
+            "material": "4000Psi"
+          }
+        ]
+      },
+      "coordinateSystem": {
+        "xAxis": {
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "yAxis": {
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "zAxis": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        }
+      }
+    }
+  ],
+  "assembly": {
+    "name": "Loads types.sdb",
+    "instances": [
+      {
+        "id": "e541a74f-8f13-43c4-9699-1daa8c121590",
+        "name": "Loads types.sdb",
+        "referenced_object": "8845a237-1dae-4370-bffd-40d57572c15a",
+        "nsets": [
+          {
+            "name": "BCnode-1",
+            "nodeIDs": [
+              1
+            ]
+          },
+          {
+            "name": "BCnode-4",
+            "nodeIDs": [
+              4
+            ]
+          },
+          {
+            "name": "BCnode-7",
+            "nodeIDs": [
+              7
+            ]
+          },
+          {
+            "name": "BCnode-10",
+            "nodeIDs": [
+              10
+            ]
+          },
+          {
+            "name": "BCnode-13",
+            "nodeIDs": [
+              13
+            ]
+          },
+          {
+            "name": "BCnode-16",
+            "nodeIDs": [
+              16
+            ]
+          },
+          {
+            "name": "LoadNode-37",
+            "nodeIDs": [
+              37
+            ]
+          },
+          {
+            "name": "LoadNode-38",
+            "nodeIDs": [
+              38
+            ]
+          }
+        ],
+        "elsets": [
+          {
+            "name": "LoadFrame-44",
+            "elementIDs": [
+              44
+            ]
+          },
+          {
+            "name": "LoadFrame-46",
+            "elementIDs": [
+              46
+            ]
+          },
+          {
+            "name": "LoadShell-1",
+            "elementIDs": [
+              1
+            ]
+          },
+          {
+            "name": "LoadShell-63",
+            "elementIDs": [
+              63
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "materials": [
+    {
+      "name": "4000Psi",
+      "category": "unknown",
+      "type": "ISOTROPIC",
+      "mass_density": 2402.7696,
+      "elastic": {
+        "plane_stress": false,
+        "plane_stain": false,
+        "compression_factor": 1,
+        "parameters": {
+          "E": 24855.578,
+          "v": 0.2
+        }
+      }
+    },
+    {
+      "name": "A992Fy50",
+      "category": "unknown",
+      "type": "ISOTROPIC",
+      "mass_density": 7849.0473999999995,
+      "elastic": {
+        "plane_stress": false,
+        "plane_stain": false,
+        "compression_factor": 1,
+        "parameters": {
+          "E": 199947.98,
+          "v": 0.3
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "id": "7cd16ab1-60fc-42f8-a458-25af60c83b71",
+      "name": "Beam",
+      "section_type": "BEAM SECTION",
+      "section": {
+        "beam_section": "I",
+        "orientation": [
+          0,
+          0,
+          -1
+        ],
+        "cross_section": {
+          "h": 0.3048,
+          "b1": 0.127,
+          "b2": 0.05,
+          "t1": 0.009652,
+          "t2": 0.009652,
+          "t3": 0.00635
+        }
+      }
+    },
+    {
+      "id": "6c2a4612-0454-4cbf-9dd6-ba3fe6f2c225",
+      "name": "Column",
+      "section_type": "BEAM SECTION",
+      "section": {
+        "beam_section": "RECT",
+        "orientation": [
+          0,
+          0,
+          -1
+        ],
+        "cross_section": {
+          "a": 0.2,
+          "b": 0.5
+        }
+      }
+    },
+    {
+      "id": "767e70ec-b17e-4ba5-b4ae-3f52de4fe1b0",
+      "name": "Shell_0.2",
+      "section_type": "SHELL SECTION",
+      "section": {
+        "thickness": 0.2
+      }
+    }
+  ],
+  "bc": [
+    {
+      "id": "b64cd75f-aed9-4c93-bfbe-8a8ace82dad1",
+      "type": "DISPLACEMENT",
+      "nset": "BCnode-1",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "ux": [
+        true,
+        0
+      ],
+      "uy": [
+        true,
+        0
+      ],
+      "uz": [
+        true,
+        0
+      ],
+      "rx": [
+        true,
+        0
+      ],
+      "ry": [
+        true,
+        0
+      ],
+      "rz": [
+        true,
+        0
+      ]
+    },
+    {
+      "id": "5fa68046-7c2f-490d-be5d-2a4e8d78dfa5",
+      "type": "DISPLACEMENT",
+      "nset": "BCnode-4",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "ux": [
+        true,
+        0
+      ],
+      "uy": [
+        true,
+        0
+      ],
+      "uz": [
+        true,
+        0
+      ],
+      "rx": [
+        false,
+        0
+      ],
+      "ry": [
+        false,
+        0
+      ],
+      "rz": [
+        false,
+        0
+      ]
+    },
+    {
+      "id": "9f17d67e-ea72-4c8e-97db-4e737ec126d0",
+      "type": "DISPLACEMENT",
+      "nset": "BCnode-7",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "ux": [
+        true,
+        0
+      ],
+      "uy": [
+        true,
+        0
+      ],
+      "uz": [
+        true,
+        0
+      ],
+      "rx": [
+        false,
+        0
+      ],
+      "ry": [
+        false,
+        0
+      ],
+      "rz": [
+        false,
+        0
+      ]
+    },
+    {
+      "id": "f20d1664-6d21-46d4-be18-61b35f8fe453",
+      "type": "DISPLACEMENT",
+      "nset": "BCnode-10",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "ux": [
+        true,
+        0
+      ],
+      "uy": [
+        true,
+        0
+      ],
+      "uz": [
+        true,
+        0
+      ],
+      "rx": [
+        true,
+        0
+      ],
+      "ry": [
+        true,
+        0
+      ],
+      "rz": [
+        true,
+        0
+      ]
+    },
+    {
+      "id": "4a3e69e6-fd3c-4289-9458-923926235c1a",
+      "type": "DISPLACEMENT",
+      "nset": "BCnode-13",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "ux": [
+        true,
+        0
+      ],
+      "uy": [
+        true,
+        0
+      ],
+      "uz": [
+        true,
+        0
+      ],
+      "rx": [
+        false,
+        0
+      ],
+      "ry": [
+        false,
+        0
+      ],
+      "rz": [
+        false,
+        0
+      ]
+    },
+    {
+      "id": "e19255c2-7ecc-4a7f-8b76-df7365fe1b74",
+      "type": "DISPLACEMENT",
+      "nset": "BCnode-16",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "ux": [
+        true,
+        0
+      ],
+      "uy": [
+        true,
+        0
+      ],
+      "uz": [
+        true,
+        0
+      ],
+      "rx": [
+        false,
+        0
+      ],
+      "ry": [
+        false,
+        0
+      ],
+      "rz": [
+        false,
+        0
+      ]
+    }
+  ],
+  "loadCases": [
+    {
+      "id": "91f04c8f-ad0a-579c-a13f-45c4456b91f1",
+      "name": "DEAD",
+      "type": "DEAD",
+      "selfWeight": [
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "id": "10d69161-3671-547a-8f76-a98dc161fec7",
+      "name": "LIVE",
+      "type": "LIVE",
+      "selfWeight": [
+        0.0,
+        0.0,
+        -0.0
+      ]
+    }
+  ],
+  "loads": [
+    {
+      "id": "f93e10d0-7a46-539e-98c1-e692b62b4559",
+      "type": "POINT_LOAD",
+      "caseName": "DEAD",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "load": {
+        "nset": "LoadNode-37",
+        "dof": 3,
+        "v": -15.0
+      }
+    },
+    {
+      "id": "61b9fa2c-e004-5f03-b301-350a0030faab",
+      "type": "POINT_LOAD",
+      "caseName": "LIVE",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "load": {
+        "nset": "LoadNode-38",
+        "dof": 3,
+        "v": -25.0
+      }
+    },
+    {
+      "id": "319139e0-20d0-5843-a003-9bdac2f965d7",
+      "type": "DISTRIBUTED_LOAD",
+      "caseName": "DEAD",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "load": {
+        "elset": "LoadFrame-44",
+        "dir": "FZ",
+        "v1": -10.0,
+        "v2": -10.0,
+        "x1": 0.0,
+        "x2": 1.0
+      }
+    },
+    {
+      "id": "28eddf23-f514-5a1c-8c87-48644992ab08",
+      "type": "DISTRIBUTED_LOAD",
+      "caseName": "LIVE",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "load": {
+        "elset": "LoadFrame-46",
+        "dir": "FZ",
+        "v1": -20.0,
+        "v2": -10.0,
+        "x1": 0.25,
+        "x2": 0.75
+      }
+    },
+    {
+      "id": "6c66a194-9bc6-5c4a-a08c-c25d84c2de95",
+      "type": "SURFACE_LOAD",
+      "caseName": "DEAD",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "load": {
+        "elset": "LoadShell-1",
+        "v": -20.0,
+        "xdir": 0.0,
+        "ydir": 0.0,
+        "zdir": 1.0
+      }
+    },
+    {
+      "id": "38676ee4-6d87-519c-8606-8ead2cb7ab3e",
+      "type": "SURFACE_LOAD",
+      "caseName": "LIVE",
+      "instances": [
+        "e541a74f-8f13-43c4-9699-1daa8c121590"
+      ],
+      "load": {
+        "elset": "LoadShell-63",
+        "v": -15.0,
+        "xdir": 0.0,
+        "ydir": 0.0,
+        "zdir": 1.0
+      }
+    }
+  ]
+}
